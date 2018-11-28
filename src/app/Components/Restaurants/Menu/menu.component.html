@@ -1,11 +1,13 @@
 <div class="row">
     <!--INÍCIO DO MENU -->
     <div class="col-md-9 col-xs-12">
-        <menu-item-component *ngFor="let menu of menuItems | async" [menuItem]="menu"></menu-item-component>
+        <menu-item-component *ngFor="let menu of menuItems | async" 
+        [menuItem]="menu" (add)="shoppingCart.addItem($event)">
+    </menu-item-component>
     </div>
     <div class="col-md-3 col-xs-12">
       <!--INICIO DO CARRINHO-->
-          <shopping-cart></shopping-cart>
+          <shopping-cart-component #shoppingCart></shopping-cart-component>
     <!-- FIM DO CARRINHO -->
   </div>
   <!-- FIM DO MENU -->

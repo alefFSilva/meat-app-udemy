@@ -8,7 +8,7 @@ import { MenuItem } from "app/Models/Menu/menu-item.model";
     selector: 'menu-component',
     templateUrl: 'menu.component.html'
 })
-export class MenuComponent{
+export class MenuComponent {
     private restaurantService: RestaurantsService;
     private activatedRoute: ActivatedRoute;
     menuItems: Observable<MenuItem[]>;
@@ -24,4 +24,7 @@ export class MenuComponent{
         this.menuItems = this.restaurantService.getMenuOfRestaurants(restaurantId);
     }
 
+    addMenuItem(item: MenuItem): void {
+        console.log(item);
+    }
 }
