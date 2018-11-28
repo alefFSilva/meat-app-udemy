@@ -5,6 +5,8 @@ import { MEAT_API } from "app/API Constants/app.api";
 import { Injectable } from "@angular/core";
 import { catchError } from 'rxjs/operators';
 import { ErroHandler } from "app/ErrorHandler/erro-handler";
+import { errorHandler } from "@angular/platform-browser/src/browser";
+import { MenuItem } from "app/Models/Menu/menu-item.model";
 
 @Injectable()
 export class RestaurantsService {
@@ -27,5 +29,15 @@ export class RestaurantsService {
         .pipe(
             catchError(ErroHandler.errorHandler)
         );
+    }
+
+    public getRestaurantsReviews(id: string): Observable<Restaurant>{
+        return this.httpClient.get<Restaurant>(`${MEAT_API}/restaurants/${id}/reviews`)
+        .pipe( catchError(ErroHandler.errorHandler));
+    };
+
+    public getMenuOfRestaurants(id: string): Observable<MenuItem[]>{
+        return this.httpClient.get<MenuItem[]>(`${MEAT_API}/restaurants/${id}/menu`)
+        .pipe( catchError(ErroHandler.errorHandler));
     }
 }
