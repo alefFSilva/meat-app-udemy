@@ -1,7 +1,7 @@
 import { HttpErrorResponse } from "@angular/common/http";
 import { throwError } from "rxjs/internal/observable/throwError";
 import { Observable, of } from "rxjs";
-
+ 
 export class ErroHandler{
     static errorHandler<T>(error: HttpErrorResponse, caugth: Observable<T>): Observable<T> {
         if (error.error instanceof ErrorEvent) {

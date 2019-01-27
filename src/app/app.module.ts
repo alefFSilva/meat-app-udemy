@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import { HttpClientModule} from "@angular/common/http"
 import { RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 
 import { AppComponent } from './app.component'
@@ -19,6 +20,10 @@ import { ShoppingCartComponent } from './Components/Restaurants/ShoppingCart/sho
 import { MenuItemComponent } from './Components/Restaurants/Menu/MenuItem/menu-Item.component';
 import { ReviewsComponent } from './Components/Restaurants/Reviews/reviews.component';
 import { ShoppingCartService } from './Services/ShoppingCart/shopping-cart.service';
+import { OrderComponent } from './Components/Order/order.component';
+import { InputContainer } from './Components/Shared/Input/input-container';
+import { RadioComponent } from './Components/Shared/Radio/radio-component';
+
 
 
 @NgModule({
@@ -33,12 +38,17 @@ import { ShoppingCartService } from './Services/ShoppingCart/shopping-cart.servi
     MenuComponent,
     ShoppingCartComponent,
     MenuItemComponent,
-    ReviewsComponent
+    ReviewsComponent,
+    OrderComponent,
+
+    InputContainer,
+    RadioComponent
   ],
   imports: [
     BrowserModule,
     HttpModule,
     HttpClientModule,
+    FormsModule,
     RouterModule.forRoot(ROUTES)
   ],
   providers: [ RestaurantsService, ShoppingCartService ],
